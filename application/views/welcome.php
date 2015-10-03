@@ -8,6 +8,7 @@
 <body style="font-family:Verdana, Geneva, sans-serif; font-size:12px">
 <table border="0" cellpadding="1" cellspacing="0" ><tr><td>
 <b><a href="<?= url::base(true); ?>">Home</a></b><br><br>
+<b><a href="contest">Contest</a></b><br><br>
 </td></tr><tr><td>
 This is Fizzbuzz<br>
 </td></tr><tr><td>
