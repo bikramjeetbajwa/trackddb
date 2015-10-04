@@ -70,6 +70,7 @@ mb_substitute_character('none');
  */
 I18n::lang('en-us');
 
+
 if (isset($_SERVER['SERVER_PROTOCOL']))
 {
 	// Replace the default protocol.
@@ -104,6 +105,7 @@ if (isset($_SERVER['KOHANA_ENV']))
  */
 Kohana::init(array(
 	'base_url'   => '/trackddb/',
+	'index_file' => FALSE,
 ));
 
 /**
@@ -129,6 +131,7 @@ Kohana::modules(array(
 	 'orm'        => MODPATH.'orm',        // Object Relationship Mapping
 	// 'unittest'   => MODPATH.'unittest',   // Unit testing
 	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
+	 'flexilang'        => MODPATH.'flexilang',        // localisation
 	));
 
 /**
@@ -139,6 +142,8 @@ Kohana::modules(array(
  * uncomment the line below and define a preferrably long salt.
  */
  Cookie::$salt = 'AADFjjhkldfdkjs34324785947';
+ Lang::$default = 'en';
+ Lang::$i18n_routes = True;
 
 /**
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
@@ -148,4 +153,8 @@ Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
 		'controller' => 'welcome',
 		'action'     => 'index',
-	));
+	))
+	->translate(array(
+        '<controller>' => TRUE,
+        '<action>'     => TRUE,
+    ));

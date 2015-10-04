@@ -9,8 +9,8 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.'); ?>
 
 <table border="0" cellpadding="1" cellspacing="0"><tr><td>
-<b><a href="<?= url::base(true); ?>">Home</a></b><br><br>
-<b><a href="<?= url::base(true); ?>contest">List Contests</a></b><br><br>
+<b><a href="<?= url::base(true); ?><?= Route::get('default')->uri(array('controller' => '', 'action' => '')); ?>"><?=  __('Home'); ?></a></b><br><br>
+<b><a href="<?= url::base(true); ?><?= Route::get('default')->uri(array('controller' => 'contest', 'action' => '')); ?>"><?=  __('List Contests'); ?></a></b><br><br>
 </td></tr><tr><td>
 
 <?php echo form::open(); ?>
@@ -18,9 +18,9 @@
 <b><?php echo ($contest['id']) ? 'Editing' : 'Creating' ?> contest</b><br /><br />
 
 <table>
-<tr><td>First Name:</td><td><?php echo form::input('name', $contest['name']) ?></td>
+<tr><td><?=  __('First Name'); ?>:</td><td><?php echo form::input('name', $contest['name']) ?></td>
 <tr><td>Email:</td><td><?php echo form::input('email', $contest['email']) ?></td>
-<tr><td></td><td><?php echo form::button('submit','Save') ?></td>
+<tr><td></td><td><?php echo form::button('submit',__('Save')) ?></td>
 <tr><td colspan="2">
 <?php if(isset($success)): ?>
 	<li> <?php echo $success ?></li>

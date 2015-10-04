@@ -8,12 +8,12 @@
 <body style="font-family:Verdana, Geneva, sans-serif; font-size:12px">
 <?php defined('SYSPATH') OR die('No direct access allowed.'); ?>
 <table border="0" cellpadding="1" cellspacing="0" ><tr><td>
-<b><a href="<?= url::base(true); ?>">Home</a></b><br><br>
-<b><a href="contest/details">Add Contest</a></b><br><br>
+<b><a href="<?= url::base(true); ?><?= Route::get('default')->uri(array('controller' => '', 'action' => '')); ?>"><?=  __('Home'); ?></a></b><br><br>
+<b><a href="<?= url::base(true); ?><?= Route::get('default')->uri(array('controller' => 'contest', 'action' => 'details')); ?>"> <?=  __('Add Contest'); ?></a></b><br><br>
 </td></tr><tr><td>
 <table cellpadding="5" >
 	<tr>
-        <td align="left" width="200px"><b>First Name</b></td>
+        <td align="left" width="200px"><b><?=  __('First Name'); ?></b></td>
         <td align="left" width="200px"><b>Email</b></td>
         <td align="left" width="100px"></td>
 </tr>
@@ -28,7 +28,7 @@
         </td>
         <td align="left">
             <?php //echo html::anchor('contest/edit/'.$contest->id, 'edit') ?>
-            <a href="contest/details/<?= $contest->id ?>">Edit</a>
+            <a href="<?= url::base(true); ?><?= Route::get('default')->uri(array('controller' => 'contest', 'action' => 'details')); ?>/<?= $contest->id ?>"><?=  __('Edit'); ?></a>
         </td>
     
 </tr>
